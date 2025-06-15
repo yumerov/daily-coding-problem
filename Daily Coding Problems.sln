@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "RandUsingAnotherRand", "RandUsingAnotherRand", "{3F71F508-D084-400D-83FF-1B9524D59731}"
+	ProjectSection(SolutionItems) = preProject
+		RandUsingAnotherRand\README.md = RandUsingAnotherRand\README.md
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RandUsingAnotherRand", "RandUsingAnotherRand\RandUsingAnotherRand.csproj", "{0DF883B3-41B9-4D8E-A84F-8172D66A4AF0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RandUsingAnotherRand.Tests", "RandUsingAnotherRand.Tests\RandUsingAnotherRand.Tests.csproj", "{A820212A-9B5B-4527-A768-B4D465B82A58}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{0DF883B3-41B9-4D8E-A84F-8172D66A4AF0} = {3F71F508-D084-400D-83FF-1B9524D59731}
+		{A820212A-9B5B-4527-A768-B4D465B82A58} = {3F71F508-D084-400D-83FF-1B9524D59731}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0DF883B3-41B9-4D8E-A84F-8172D66A4AF0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0DF883B3-41B9-4D8E-A84F-8172D66A4AF0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0DF883B3-41B9-4D8E-A84F-8172D66A4AF0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0DF883B3-41B9-4D8E-A84F-8172D66A4AF0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A820212A-9B5B-4527-A768-B4D465B82A58}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A820212A-9B5B-4527-A768-B4D465B82A58}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A820212A-9B5B-4527-A768-B4D465B82A58}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A820212A-9B5B-4527-A768-B4D465B82A58}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

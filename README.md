@@ -1,3 +1,15 @@
 # Daily Coding Problem
 
-My solutions to [coding problems](https://www.dailycodingproblem.com/)
+## Framework
+
+Approach to solve coding problems.
+
+1. Understand it
+2. Solve it theoretically
+3. Solve it technically
+4. Document it
+5. Improve it performance- and structure-wise
+
+## My solutions to [coding problems](https://www.dailycodingproblem.com/)
+
+- Create `rand5` using `rand7`](./RandUsingAnotherRand/README.md)
