@@ -44,11 +44,10 @@ Calling `rand7` 5 times to divide to 7 as theoretical max is 35 is not a solutio
 Call `rand7()`. If the result is 6 or 7, re-roll it.
 It works on the first call on 71%(5/7).
 
-### Multiple dice and re-roll
+### Multiple dice and re-roll(aiming to minimalize the chance to re-roll)
 
 $7 + \sum_{n=2}^{N} 6 \cdot 7^{n - 1} \quad \text{where } N \text{ is the dimension count}$
 
-If the sum is 
 
 | Dice | Max value | Closest | Chance              |
 |------|-----------|---------|---------------------|
