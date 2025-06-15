@@ -9,6 +9,7 @@
     * [Split to 5 sections](#split-to-5-sections)
     * [Run it 5 times](#run-it-5-times)
     * [Re-rolling](#re-rolling)
+    * [Multiple dice and re-roll](#multiple-dice-and-re-roll)
   * [Alternative thinking](#alternative-thinking)
 <!-- TOC -->
 
