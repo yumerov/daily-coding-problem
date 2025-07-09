@@ -9,7 +9,7 @@
     * [Split to 5 sections](#split-to-5-sections)
     * [Run it 5 times](#run-it-5-times)
     * [Re-rolling](#re-rolling)
-    * [Multiple dice and re-roll](#multiple-dice-and-re-roll)
+    * [Multiple dice and re-roll(aiming to minimalize the chance to re-roll)](#multiple-dice-and-re-rollaiming-to-minimalize-the-chance-to-re-roll)
   * [Alternative thinking](#alternative-thinking)
 <!-- TOC -->
 
