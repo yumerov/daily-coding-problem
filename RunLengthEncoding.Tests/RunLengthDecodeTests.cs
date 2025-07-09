@@ -2,17 +2,17 @@ namespace RunLengthEncoding.Tests;
 
 using RunLengthEncoding;
 
-public class RunLengthEncodeTests
+public class RunLengthDecodeTests
 {
     [Fact]
     public void empty_string()
     {
-        Assert.Empty("".RunLengthEncode());
+        Assert.Empty("".RunLengthDecode());
     }
 
     [Fact]
     public void non_empty_string()
     {
-        Assert.Equal("4A3B2C1D2A", "AAAABBBCCDAA".RunLengthEncode());
+        Assert.Equal("AAAABBBCCDAA", "4A3B2C1D2A".RunLengthDecode());
     }
 }

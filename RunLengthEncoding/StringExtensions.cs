@@ -40,5 +40,24 @@ public static class StringExtensions
         return output.ToString();
     }
 
-    public static string RunLengthDecode(this string str) => str;
+    public static string RunLengthDecode(this string str)
+    {
+        var output = new StringBuilder();
+        var count = 0;
+
+        foreach (var c in str)
+        {
+            if (char.IsDigit(c))
+            {
+                count = count * 10 + (c - '0');
+            }
+            else
+            {
+                output.Append(new string(c, count));
+                count = 0;
+            }
+        }
+
+        return output.ToString();
+    }
 }

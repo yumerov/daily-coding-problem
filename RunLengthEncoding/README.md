@@ -18,7 +18,8 @@ Convert "AAAABBBCCDAA" to "4A3B2C1D2A" and otherwise.
 
 ## Testing
 
-Simple unit tests
+Simple unit tests.
+Run `dotnet test RunLengthEncoding.Tests/RunLengthEncoding.Tests.csproj` from the repo root.
 
 ## Attempts
 
