@@ -12,10 +12,10 @@ public static class StringExtensions
         }
 
         var output = new StringBuilder();
-        char currentChar = str[0];
-        int count = 1;
+        var currentChar = str[0];
+        var count = 1;
 
-        for (int i = 1; i < str.Length; i++)
+        for (var i = 1; i < str.Length; i++)
         {
             if (str[i] == currentChar)
             {
@@ -29,42 +29,7 @@ public static class StringExtensions
             }
         }
 
-        // Append the last sequence
         output.Append(count).Append(currentChar);
-
-        return output.ToString();
-    }
-    {
-        var output = new StringBuilder();
-        char? lastChar = null;
-        var count = 0;
-
-        for (var index = 0; index < str.Length; index++)
-        {
-            var c = str[index];
-            if (lastChar == null)
-            {
-                lastChar = c;
-                count = 0;
-            }
-
-            if (c != lastChar && lastChar != null)
-            {
-                output.Append($"{count}{lastChar}");
-                lastChar = c;
-                count = 0;
-            }
-
-            if (c == lastChar)
-            {
-                count++;
-            }
-
-            if (index == str.Length - 1)
-            {
-                output.Append($"{count}{lastChar}");
-            }
-        }
 
         return output.ToString();
     }
