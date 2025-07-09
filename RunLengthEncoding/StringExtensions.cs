@@ -6,6 +6,35 @@ public static class StringExtensions
 {
     public static string RunLengthEncode(this string str)
     {
+        if (string.IsNullOrEmpty(str))
+        {
+            return string.Empty;
+        }
+
+        var output = new StringBuilder();
+        char currentChar = str[0];
+        int count = 1;
+
+        for (int i = 1; i < str.Length; i++)
+        {
+            if (str[i] == currentChar)
+            {
+                count++;
+            }
+            else
+            {
+                output.Append(count).Append(currentChar);
+                currentChar = str[i];
+                count = 1;
+            }
+        }
+
+        // Append the last sequence
+        output.Append(count).Append(currentChar);
+
+        return output.ToString();
+    }
+    {
         var output = new StringBuilder();
         char? lastChar = null;
         var count = 0;
