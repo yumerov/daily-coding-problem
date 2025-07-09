@@ -13,3 +13,4 @@ Approach to solve coding problems.
 ## My solutions to [coding problems](https://www.dailycodingproblem.com/)
 
 - [Create `rand5` using `rand7`](RandUsingAnotherRand/README.md)
+- [Run-length encoding](RunLengthEncoding/README.md)
