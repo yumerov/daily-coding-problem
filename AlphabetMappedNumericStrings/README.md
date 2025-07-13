@@ -15,7 +15,27 @@ Run `dotnet test AlphabetMappedNumericStrings.Tests/AlphabetMappedNumericStrings
 
 ## Attempts
 
-### Recursion
+### Tree building + Leaf counting + Recursion
 
 Example 1:
-We begin with `111`. We have two points to work: 1:11 and 11:1. 1:11 branches out as 1:1:1 and 1:11. So we have aaa, ak and ka.
+```mermaid
+graph TD
+    111 --> 1:11
+    111 --> 11:1
+    1:11 --> 1::11
+    1:11 --> 1:1:1
+```
+
+Example 2:
+```mermaid
+graph TD
+    1111 --> 1:111
+    1:111 --> 1:1:11
+    1:1:11 --> 1:1:1:1
+    1:1:11 --> 1:1::11
+    1:111 --> 1:11:1
+
+    1111 --> 11:11
+    11:11 --> 11:1:1
+    11:11 --> 11::11
+```
