@@ -14,3 +14,9 @@ Approach to solve coding problems.
 
 - [Create `rand5` using `rand7`](RandUsingAnotherRand/README.md)
 - [Run-length encoding](RunLengthEncoding/README.md)
+- [WIP][Balanced brackets](BalancedBrackets/README.md)
+
+## Testing
+
+- `dotnet new xunit -n <Solition>.Tests`
+- `dotnet sln add <Solition>.Tests/<Solition>.Tests.csproj`
