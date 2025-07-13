@@ -20,4 +20,10 @@ public class BalancedBracketsTests
     {
         Assert.False("([)]".AreBracketsBalanced());
     }
+    
+    [Fact]
+    public void mixed_string()
+    {
+        Assert.True("(a(b)c()d)".AreBracketsBalanced());
+    }
 }

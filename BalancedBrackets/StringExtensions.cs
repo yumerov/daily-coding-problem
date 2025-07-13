@@ -8,7 +8,22 @@ public static class StringExtensions
         {
             return true;
         }
+        
+        var brackets = new Stack<char>();
+        foreach (var c in str.Where(c => c.IsBracket()))
+        {
+            if (c.IsOpenBracket())
+            {
+                brackets.Push(c);
+                continue;
+            }
 
-        return false;
+            if (brackets.Count == 0 || brackets.Pop() != c.GetOpenBracket())
+            {
+                return false;
+            }
+        }
+
+        return brackets.Count == 0;
     }
 }
