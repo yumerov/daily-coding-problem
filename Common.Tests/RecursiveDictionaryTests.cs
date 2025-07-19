@@ -1,4 +1,4 @@
-namespace AlphabetMappedNumericStrings.Tests;
+namespace Common.Tests;
 
 public class RecursiveDictionaryTests
 {

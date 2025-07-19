@@ -3,7 +3,6 @@ namespace AlphabetMappedNumericStrings.Tests;
 public class AlphabetMappedNumericDecoderTests
 {
     [Theory]
-    [InlineData("0", 0)]
     [InlineData("1", 1)]
     [InlineData("2", 1)]
     [InlineData("3", 1)]

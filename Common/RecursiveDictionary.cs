@@ -1,4 +1,4 @@
-namespace AlphabetMappedNumericStrings;
+namespace Common;
 
 /// <summary>
 /// Recursive dictionary used as a tree
