@@ -26,25 +26,4 @@ public class RecursiveDictionary<T> : Dictionary<T, RecursiveDictionary<T>?> whe
             return count;
         }
     }
-
-    public override string ToString()
-    {
-        var builder = new StringBuilder();
-        builder.Append('(');
-        foreach (var key in Keys)
-        {
-            var children = this[key];
-            if (children == null || children.Count == 0)
-            {
-                builder.Append($"{key} => NULL");
-            }
-            else
-            {
-                builder.Append($"{key} => {children.ToString()}, ");
-            }
-        }
-        builder.Append(')');
-        
-        return builder.ToString();
-    }
 }
