@@ -32,24 +32,17 @@ public class AlphabetMappedNumericDecoderTests
     [InlineData("24", 2)]
     [InlineData("25", 2)]
     [InlineData("26", 2)]
-    [InlineData("27", 2)]
-    [InlineData("28", 2)]
-    [InlineData("29", 2)]
-    [InlineData("30", 1)]
-    [InlineData("31", 2)]
-    [InlineData("40", 1)]
-    [InlineData("42", 2)]
-    [InlineData("50", 1)]
-    [InlineData("53", 2)]
-    [InlineData("60", 1)]
-    [InlineData("64", 2)]
-    [InlineData("70", 1)]
-    [InlineData("71", 2)]
-    [InlineData("75", 2)]
-    [InlineData("80", 1)]
-    [InlineData("86", 2)]
-    [InlineData("90", 1)]
-    [InlineData("97", 2)]
+    [InlineData("27", 1)]
+    [InlineData("28", 1)]
+    [InlineData("29", 1)]
+    [InlineData("31", 1)]
+    [InlineData("42", 1)]
+    [InlineData("53", 1)]
+    [InlineData("64", 1)]
+    [InlineData("71", 1)]
+    [InlineData("75", 1)]
+    [InlineData("86", 1)]
+    [InlineData("97", 1)]
     public void TwoDigits(string str, int count) => AssertCount(count, str);
     
     [Theory]
@@ -57,6 +50,28 @@ public class AlphabetMappedNumericDecoderTests
     [InlineData("111", 3)]
     [InlineData("271", 1)]
     public void ThreeDigits(string str, int count) => AssertCount(count, str);
+    
+    [Theory]
+    [InlineData("3333333333", 1)]
+    [InlineData("1111111111", 89)]
+    public void TenDigits(string str, int count) => AssertCount(count, str);
+    
+    [Theory]
+    [InlineData("33333333333333333333", 1)]
+    [InlineData("11111111111111111111", 10946)]
+    public void TwentyDigits(string str, int count) => AssertCount(count, str);
+    
+    [Theory]
+    [InlineData("33333333333333333333333333333333333", 1)]
+    [InlineData("11111111111111111111111111111111111", 14_930_352)]
+    public void Performance_NoMemorization(string str, int count) => AssertCount(count, str);
+    
+    [Theory]
+    [InlineData("33333333333333333333333333333333333", 1)]
+    [InlineData("11111111111111111111111111111111111", 14_930_352)]
+    public void Performance_Memorization(string str, int count) => Assert.Equal(
+        count,
+        new AlphabetMappedNumericDecoder(str, true).BuildTree().CombinationCount);
     
     private static void AssertCount(int count, string str) =>
         Assert.Equal(count, new AlphabetMappedNumericDecoder(str).BuildTree().CombinationCount);

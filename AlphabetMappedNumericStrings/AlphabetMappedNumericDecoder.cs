@@ -1,76 +1,64 @@
+using Common;
+
 namespace AlphabetMappedNumericStrings;
 
 using RecursiveIntDictionary = RecursiveDictionary<int>;
 
-public class AlphabetMappedNumericDecoder(string value)
+public class AlphabetMappedNumericDecoder
 {
-    private readonly string _value = value;
+    private readonly string _value;
     public int CombinationCount => _tree.LeafCount;
-    private readonly RecursiveIntDictionary _tree = new();
-    private readonly Dictionary<string, RecursiveIntDictionary> _cachedBranches = new();
+    private RecursiveIntDictionary _tree = new();
+    private readonly Memorizer<string, RecursiveIntDictionary>? _memorizer;
+
+    public AlphabetMappedNumericDecoder(string value, bool cached = false)
+    {
+        _value = value;
+        if (cached)
+        {
+            _memorizer = new Memorizer<string, RecursiveIntDictionary>();
+        }
+    }
 
     public AlphabetMappedNumericDecoder BuildTree()
     {
-        if (_value.Equals("0"))
-        {
-            return this;
-        }
-        
-        _tree[0] = BuildTree(_value);
+        _tree = BuildTree(_value);
 
         return this;
     }
-
-    private RecursiveIntDictionary BuildTree(string value)
+    
+    private RecursiveIntDictionary BuildTree(string currenValue)
     {
-        // if (_cachedBranches.TryGetValue(value, out var tree))
-        // {
-        //     return tree;
-        // }
-
-        if (value.Equals("0"))
+        return _memorizer == null ? _BuildTree(currenValue) : _memorizer.Memorize(_BuildTree)(currenValue);
+    }
+    
+    private RecursiveIntDictionary _BuildTree(string currenValue)
+    {
+        if (currenValue.Equals("0") || currenValue.Equals(""))
         {
             return new RecursiveIntDictionary();
         }
-        
-        if (value.Length == 1)
+
+        if (currenValue.Length == 1)
         {
             return new RecursiveIntDictionary
             {
-                [int.Parse(value)] = null
+                [int.Parse(currenValue)] = null
             };
         }
 
+        var head = int.Parse(currenValue[..2]);
+        var tail = currenValue[2..];
 
-        // if (value.Length == 2) return CountTwoChars(str);
-
-        var tail = value[2..];
-
-        return _cachedBranches[value];
+        return head switch
+        {
+            10 => new RecursiveIntDictionary { [head] = null },
+            20 => new RecursiveIntDictionary { [head] = BuildTree(tail) },
+            >= 11 and <= 26 => new RecursiveIntDictionary
+            {
+                [head / 10] = BuildTree($"{head % 10}{tail}"), [head] = BuildTree(tail)
+            },
+            _ => new RecursiveIntDictionary { [head / 10] = BuildTree($"{head % 10}{tail}") }
+        };
     }
-
-    // public int GetCount()
-    // {
-    //     if (str.Length == 1) return CountOneChar(str);
-    //
-    //     if (str.Length == 2) return CountTwoChars(str);
-    //     
-    //     var head = str[..2];
-    //     var tail = str[2..];
-    //     var headCombinations = CountTwoChars(head);
-    //     if (headCombinations == 1) return GetCount(tail);
-    //     if (headCombinations == 2) return GetCount(tail) + GetCount($"{head[1]}{tail}");
-    //     
-    //     return GetCount($"{head[1]}{tail}");
-    // }
-
-    private static int CountOneChar(string str) => str[0] == '0' ? 0 : 1;
-
-    private static int CountTwoChars(string str) => int.Parse(str[..2]) switch
-    {
-        < 9 => 1,
-        var n when n % 10 == 0 => 1,
-        >= 11 and <= 19 or >= 21 and <= 26 => 2,
-        _ => 2
-    };
 }

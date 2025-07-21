@@ -1,22 +1,21 @@
 namespace Common;
 
-public class Memorizer
+public class Memorizer<T, TR>
 {
-    private readonly Dictionary<int, object> _cache = new();
+    private readonly Dictionary<int, TR> _cache = new();
 
-
-    public Func<T, R> Memorize<T, R>(Func<T, R> func)
+    public Func<T, TR> Memorize(Func<T, TR> func)
     {
         return arg =>
         {
             var key = arg!.GetHashCode();
             if (_cache.TryGetValue(key, out var cached))
             {
-                return (R)cached;
+                return cached;
             }
             
             _cache[key] = func(arg);
-            return (R)_cache[key];
+            return _cache[key];
         };
     }
 }

@@ -22,6 +22,24 @@ You can assume that the messages are decodable. For example, '001' is not allowe
 
 Simple unit tests.
 Run `dotnet test AlphabetMappedNumericStrings.Tests/AlphabetMappedNumericStrings.Tests.csproj` from the repo root.
+Use input that can cause performance issues. Example: 1s repeated 10 times - it will create a lot of branching. While 3 repeated 10 times will return 1 as there is not branching, more a structure like linked list.
+
+## Performance
+
+Run on Mac M2.
+
+```bash
+dotnet test AlphabetMappedNumericStrings.Tests/AlphabetMappedNumericStrings.Tests.csproj --filter "FullyQualifiedName~AlphabetMappedNumericStrings.Tests.AlphabetMappedNumericDecoderTests.Performance_NoMemorization"
+# Test summary: total: 2, failed: 0, succeeded: 2, skipped: 0, duration: 32,1s
+# Build succeeded in 33,0s
+```
+
+```bash
+dotnet test AlphabetMappedNumericStrings.Tests/AlphabetMappedNumericStrings.Tests.csproj --filter "FullyQualifiedName~AlphabetMappedNumericStrings.Tests.AlphabetMappedNumericDecoderTests.Performance_Memorization"
+# Test summary: total: 2, failed: 0, succeeded: 2, skipped: 0, duration: 1,1s
+# Build succeeded in 1,9s
+```
+
 
 ## Attempts
 
@@ -62,3 +80,8 @@ graph TD
 ```
 
 As we can observe, the subtrees repeat themselves in other branches, just like Fibonacci which means without caching/memorization, the time complexity is O(F(N)), where N is the lenght of input string.
+
+## Disclaimer
+
+Using `int` limit us up to 2,147,483,647 result count. For further results, use `long` or other bigger type.
+For more information see [Integral numeric types (C# reference)](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/integral-numeric-types)
