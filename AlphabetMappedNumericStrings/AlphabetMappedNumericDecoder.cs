@@ -52,8 +52,7 @@ public class AlphabetMappedNumericDecoder
 
         return head switch
         {
-            10 => new RecursiveIntDictionary { [head] = null },
-            20 => new RecursiveIntDictionary { [head] = BuildTree(tail) },
+            10 or 20 => new RecursiveIntDictionary { [head] = BuildTree(tail) },
             >= 11 and <= 26 => new RecursiveIntDictionary
             {
                 [head / 10] = BuildTree($"{head % 10}{tail}"), [head] = BuildTree(tail)

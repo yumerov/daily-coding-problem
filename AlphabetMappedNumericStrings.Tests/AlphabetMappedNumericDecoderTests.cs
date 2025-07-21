@@ -52,6 +52,11 @@ public class AlphabetMappedNumericDecoderTests
     public void ThreeDigits(string str, int count) => AssertCount(count, str);
     
     [Theory]
+    [InlineData("1011", 2)]
+    [InlineData("2022", 2)]
+    public void FourDigitDigits(string str, int count) => AssertCount(count, str);
+    
+    [Theory]
     [InlineData("3333333333", 1)]
     [InlineData("1111111111", 89)]
     public void TenDigits(string str, int count) => AssertCount(count, str);
