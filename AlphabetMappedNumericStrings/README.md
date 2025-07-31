@@ -4,10 +4,12 @@
 * [Implement Decoder for Alphabet-Mapped Numeric Strings](#implement-decoder-for-alphabet-mapped-numeric-strings)
   * [Description](#description)
   * [Testing](#testing)
+  * [Performance](#performance)
   * [Attempts](#attempts)
     * [Tree building + Leaf counting + Recursion](#tree-building--leaf-counting--recursion)
       * [Example 1](#example-1)
       * [Example 2](#example-2)
+  * [Disclaimer](#disclaimer)
 <!-- TOC -->
 
 Issue: https://github.com/yumerov/daily-coding-problem/issues/3
